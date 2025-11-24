@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="systemcopyfile.MainPage">
+
+    <Grid Padding="20" RowSpacing="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Source Selection -->
+        <Label Grid.Row="0" Text="源文件/文件夹:" VerticalOptions="Center" />
+        <Grid Grid.Row="1" ColumnDefinitions="*,Auto">
+            <Entry x:Name="SourcePathEntry" Grid.Column="0" IsReadOnly="True" />
+            <Button x:Name="SelectSourceButton" Grid.Column="1" Text="选择..." />
+        </Grid>
+
+        <!-- Destination Selection -->
+        <Label Grid.Row="2" Text="目标位置:" VerticalOptions="Center" />
+        <Grid Grid.Row="3" ColumnDefinitions="*,Auto">
+            <Entry x:Name="DestinationPathEntry" Grid.Column="0" IsReadOnly="True" />
+            <Button x:Name="SelectDestinationButton" Grid.Column="1" Text="选择..." />
+        </Grid>
+
+        <!-- Action Button -->
+        <Button x:Name="StartCopyButton" Grid.Row="4" Text="开始复制" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <!-- Progress and Status -->
+        <VerticalStackLayout Grid.Row="5" Spacing="10">
+            <ProgressBar x:Name="CopyProgressBar" Progress="0" />
+            <Label x:Name="StatusLabel" Text="准备就绪" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
