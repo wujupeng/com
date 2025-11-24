@@ -1,0 +1,36 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Ww][Ii][Nn]32/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio 2019 cache/options directory
+.vs/
+
+# Visual Studio 2022 cache/options directory
+.vs/
+
+# Rider files
+.idea/
+
+# Mac files
+.DS_Store
+
+# dotnet-generated files
+project.lock.json
+project.assets.json
