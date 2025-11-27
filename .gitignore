@@ -34,3 +34,4 @@ bld/
 # dotnet-generated files
 project.lock.json
 project.assets.json
+certs/

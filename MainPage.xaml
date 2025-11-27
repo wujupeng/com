@@ -9,30 +9,40 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!-- Source Selection -->
-        <Label Grid.Row="0" Text="源文件/文件夹:" VerticalOptions="Center" />
-        <Grid Grid.Row="1" ColumnDefinitions="*,Auto">
+        <Label x:Name="HeaderLabel" Grid.Row="0" Text="systemcopyfile" FontSize="24" FontAttributes="Bold" />
+
+        <Label Grid.Row="1" Text="源文件/文件夹:" VerticalOptions="Center" />
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto" ColumnSpacing="12">
             <Entry x:Name="SourcePathEntry" Grid.Column="0" IsReadOnly="True" />
-            <Button x:Name="SelectSourceButton" Grid.Column="1" Text="选择..." />
+            <Button x:Name="SelectSourceButton" Grid.Column="1" Text="选择..." Clicked="OnSelectSourceClicked" Style="{DynamicResource AccentButton}" />
         </Grid>
 
-        <!-- Destination Selection -->
-        <Label Grid.Row="2" Text="目标位置:" VerticalOptions="Center" />
-        <Grid Grid.Row="3" ColumnDefinitions="*,Auto">
+        <Label Grid.Row="3" Text="目标位置:" VerticalOptions="Center" />
+        <Grid Grid.Row="4" ColumnDefinitions="*,Auto" ColumnSpacing="12">
             <Entry x:Name="DestinationPathEntry" Grid.Column="0" IsReadOnly="True" />
-            <Button x:Name="SelectDestinationButton" Grid.Column="1" Text="选择..." />
+            <Button x:Name="SelectDestinationButton" Grid.Column="1" Text="选择..." Clicked="OnSelectDestinationClicked" Style="{DynamicResource AccentButton}" />
         </Grid>
 
-        <!-- Action Button -->
-        <Button x:Name="StartCopyButton" Grid.Row="4" Text="开始复制" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Grid Grid.Row="5" ColumnDefinitions="Auto,Auto" VerticalOptions="Center">
+            <Label Grid.Column="0" Text="断点续传" VerticalOptions="Center" />
+            <Switch x:Name="ResumeSwitch" Grid.Column="1" IsToggled="True" />
+        </Grid>
 
-        <!-- Progress and Status -->
-        <VerticalStackLayout Grid.Row="5" Spacing="10">
-            <ProgressBar x:Name="CopyProgressBar" Progress="0" />
+        <Grid Grid.Row="6" ColumnDefinitions="Auto,10,Auto" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,10">
+            <Button x:Name="StartCopyButton" Grid.Column="0" Text="开始复制" Clicked="OnStartCopyClicked" Style="{DynamicResource AccentButton}" />
+            <BoxView Grid.Column="1" WidthRequest="10" />
+            <Button x:Name="CancelCopyButton" Grid.Column="2" Text="取消" Clicked="OnCancelClicked" Style="{DynamicResource NeutralButton}" />
+        </Grid>
+
+        <VerticalStackLayout Grid.Row="7" Spacing="12" Margin="0,8">
+            <ProgressBar x:Name="CopyProgressBar" Progress="0" HeightRequest="6" />
+            <Label x:Name="ProgressTextLabel" Text="0%" HorizontalOptions="Center" FontSize="16" />
             <Label x:Name="StatusLabel" Text="准备就绪" HorizontalOptions="Center" />
         </VerticalStackLayout>
     </Grid>
